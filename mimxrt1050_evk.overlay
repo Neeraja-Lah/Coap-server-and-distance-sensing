@@ -1,0 +1,37 @@
+/ {
+
+    leds {
+        compatible = "gpio-leds";
+        red_led: led_r {
+            gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;
+            label = "User LED-R";
+        };
+
+        gree_led: led_g {
+            gpios = <&gpio1 10 GPIO_ACTIVE_HIGH>;
+            label = "User LED-G";
+        };
+
+        blue_led: led_b {
+            gpios = <&gpio3 15 GPIO_ACTIVE_HIGH>;
+            label = "User LED-B";
+        };
+    };
+
+    sensors {
+        sensor_dist1: hc-sr04 {
+            compatible = "elecfreaks,hc-sr04";
+            label = "HC-SR04_0";
+            trig-gpios = < &gpio1 24 GPIO_ACTIVE_HIGH>;
+            echo-gpios = < &gpio1 18 GPIO_ACTIVE_HIGH>;
+            status = "okay";
+        };
+        sensor_dist2: hc-sr04-2 {
+            compatible = "elecfreaks,hc-sr04";
+            label = "HC-SR04_1";
+            trig-gpios = <&gpio1 3 GPIO_ACTIVE_HIGH>;
+            echo-gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
+            status = "okay";
+        };
+    };
+};
